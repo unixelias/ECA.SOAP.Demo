@@ -2,18 +2,18 @@
 
 namespace ECA.SOAP.Demo.Entities;
 
-public class NumberToWordsEntity
+public class NumberToDollarsEntity
 {
     private const string Soap = "http://schemas.xmlsoap.org/soap/envelope/";
     private const string DataAccess = "http://www.dataaccess.com/webservicesserver/";
 
     [XmlType(IncludeInSchema = true)]
     [XmlRoot("Envelope", Namespace = Soap)]
-    public class NumberToWordsXmlEntity
+    public class NumberToDollarsXmlEntity
     {
         public Body Body { get; set; }
 
-        public NumberToWordsXmlEntity()
+        public NumberToDollarsXmlEntity()
         {
             Xmlns.Add("soap", Soap);
             Xmlns.Add("dataAccess", DataAccess);
@@ -26,14 +26,14 @@ public class NumberToWordsEntity
     [XmlType(Namespace = "")]
     public class Body
     {
-        [XmlElement(ElementName = "NumberToWords", Namespace = DataAccess)]
-        public NumberToWords NumberToWords { get; set; }
+        [XmlElement(ElementName = "NumberToDollars", Namespace = DataAccess)]
+        public NumberToDollars NumberToDollars { get; set; }
     }
 
     [XmlType(Namespace = "")]
-    public class NumberToWords
+    public class NumberToDollars
     {
-        [XmlElement(ElementName = "ubiNum", Namespace = "")]
-        public int UbiNum { get; set; }
+        [XmlElement(ElementName = "dNum", Namespace = "")]
+        public double DNum { get; set; }
     }
 }

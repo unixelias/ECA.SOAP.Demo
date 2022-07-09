@@ -25,7 +25,7 @@ public class NumberController : Controller
         _logger = logger;
     }
     [HttpGet]
-    [Route("FullName/{number}")]
+    [Route("full-name/{number}")]
     [Produces("application/json")]
     [ProducesResponseType(typeof(NumberFullNameModel), StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -35,6 +35,28 @@ public class NumberController : Controller
         try
         {
             var retorno = await _dataAccessRepository.GetFulNameByNumber(number);
+            _logger.LogInformation($"Entrada: {number}; Saída: {retorno}");
+            return Ok(retorno.GetModel(number));
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError($"Erro ao executar: {ex.Message}; {ex.StackTrace}");
+            return StatusCode((int)HttpStatusCode.InternalServerError, ex);
+        }
+
+    }
+
+    [HttpGet]
+    [Route("dollars/{number}")]
+    [Produces("application/json")]
+    [ProducesResponseType(typeof(NumberToDollarsModel), StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+    public async Task<IActionResult> GetNumberToDollars([FromRoute] double number)
+    {
+        try
+        {
+            var retorno = await _dataAccessRepository.GetDollarsFromNumber(number);
             _logger.LogInformation($"Entrada: {number}; Saída: {retorno}");
             return Ok(retorno.GetModel(number));
         }
