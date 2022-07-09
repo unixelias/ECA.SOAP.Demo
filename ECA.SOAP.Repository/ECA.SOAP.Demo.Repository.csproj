@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+	<LangVersion>10</LangVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.WebUtilities" Version="2.2.0" />
+    <PackageReference Include="Microsoft.Extensions.Http" Version="6.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="6.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ECA.SOAP.Demo.Entities\ECA.SOAP.Demo.Entities.csproj" />
+    <ProjectReference Include="..\ECA.SOAP.Demo.Repository.Interface\ECA.SOAP.Demo.Repository.Interface.csproj" />
+    <ProjectReference Include="..\ECA.SOAP.Demo.Util\ECA.SOAP.Demo.Util.csproj" />
+  </ItemGroup>
+
+</Project>

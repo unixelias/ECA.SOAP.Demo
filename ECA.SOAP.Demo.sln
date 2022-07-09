@@ -1,0 +1,49 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32616.157
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ECA.SOAP.Demo", "ECA.SOAP.Demo\ECA.SOAP.Demo.csproj", "{B477EA04-F5D3-4B67-9557-220AAD7DB6C3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ECA.SOAP.Demo.Repository", "ECA.SOAP.Repository\ECA.SOAP.Demo.Repository.csproj", "{C56C9C32-82C1-46F3-BBDF-6AA3E4E1278E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ECA.SOAP.Demo.Entities", "ECA.SOAP.Demo.Entities\ECA.SOAP.Demo.Entities.csproj", "{2E465591-2B34-41BC-8439-3D334250C88A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ECA.SOAP.Demo.Util", "ECA.SOAP.Demo.Util\ECA.SOAP.Demo.Util.csproj", "{FF3FAFA5-C627-4F7C-A182-08B1ACC8CA00}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ECA.SOAP.Demo.Repository.Interface", "ECA.SOAP.Demo.Repository.Interface\ECA.SOAP.Demo.Repository.Interface.csproj", "{5B27E052-83B9-491D-AA18-8E5E8103E5AE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B477EA04-F5D3-4B67-9557-220AAD7DB6C3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B477EA04-F5D3-4B67-9557-220AAD7DB6C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B477EA04-F5D3-4B67-9557-220AAD7DB6C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B477EA04-F5D3-4B67-9557-220AAD7DB6C3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C56C9C32-82C1-46F3-BBDF-6AA3E4E1278E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C56C9C32-82C1-46F3-BBDF-6AA3E4E1278E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C56C9C32-82C1-46F3-BBDF-6AA3E4E1278E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C56C9C32-82C1-46F3-BBDF-6AA3E4E1278E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2E465591-2B34-41BC-8439-3D334250C88A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2E465591-2B34-41BC-8439-3D334250C88A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2E465591-2B34-41BC-8439-3D334250C88A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2E465591-2B34-41BC-8439-3D334250C88A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FF3FAFA5-C627-4F7C-A182-08B1ACC8CA00}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FF3FAFA5-C627-4F7C-A182-08B1ACC8CA00}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FF3FAFA5-C627-4F7C-A182-08B1ACC8CA00}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FF3FAFA5-C627-4F7C-A182-08B1ACC8CA00}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5B27E052-83B9-491D-AA18-8E5E8103E5AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B27E052-83B9-491D-AA18-8E5E8103E5AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5B27E052-83B9-491D-AA18-8E5E8103E5AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5B27E052-83B9-491D-AA18-8E5E8103E5AE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5C45260F-F5D0-4292-8365-2AB9E5D280A4}
+	EndGlobalSection
+EndGlobal
