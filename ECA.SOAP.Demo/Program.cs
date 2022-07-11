@@ -32,12 +32,13 @@ builder.Services.AddHttpClient(ConfigParams.Get().DataAccessApi.Name, client =>
 builder.Services.AddHttpClient(ConfigParams.Get().W3SchoolsApi.Name, client =>
 {
     client.BaseAddress = new Uri(ConfigParams.Get().W3SchoolsApi.BaseUrl);
-    client.DefaultRequestHeaders.TryAddWithoutValidation("Content-Type", "text/xml; charset=utf-8");
+    client.DefaultRequestHeaders.TryAddWithoutValidation("Content-Type", "application/soap+xml; charset=utf-8");
 });
 
 #region Dependencies Injection
 
 builder.Services.AddScoped<IDataAccessRepository, DataAccessRepository>();
+builder.Services.AddScoped<IW3cTemperatureRepository, W3cTemperatureRepository>();
 
 #endregion Dependencies Injection
 
