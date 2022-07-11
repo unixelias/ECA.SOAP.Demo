@@ -18,8 +18,8 @@ public abstract class BaseRepository
     protected abstract string ApiUrl { get; }
     protected abstract string ApiName { get; }
 
-    protected readonly IHttpClientFactory _clientFactory;
-    protected readonly ILogger<BaseRepository> _logger;
+    private readonly IHttpClientFactory _clientFactory;
+    protected readonly ILogger<BaseRepository> Logger;
 
     #endregion Properties
 
@@ -31,7 +31,7 @@ public abstract class BaseRepository
         )
     {
         _clientFactory = clientFactory;
-        _logger = logger;
+        Logger = logger;
     }
 
     #endregion Constructor

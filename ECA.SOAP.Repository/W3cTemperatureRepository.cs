@@ -6,6 +6,8 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using static ECA.SOAP.Demo.Entities.CelsiusToFahrenheitEntity;
 using static ECA.SOAP.Demo.Entities.CelsiusToFahrenheitResponseEntity;
+using static ECA.SOAP.Demo.Entities.FahrenheitToCelsiusEntity;
+using static ECA.SOAP.Demo.Entities.FahrenheitToCelsiusResponseEntity;
 
 namespace ECA.SOAP.Demo.Repository
 {
@@ -23,7 +25,7 @@ namespace ECA.SOAP.Demo.Repository
         {
         }
 
-        public async Task<CelsiusToFahrenheitResponseXmlEntity> ConvertGetFulNameByNumber(int number)
+        public async Task<CelsiusToFahrenheitResponseXmlEntity> ConvertCelsiusToFahrenheit(double number)
         {
             CelsiusToFahrenheitXmlEntity degreesXml = new()
             {
@@ -37,9 +39,34 @@ namespace ECA.SOAP.Demo.Repository
             };
 
             string bodyString = ObjectXmlToString(degreesXml, CelsiusToFahrenheitXmlEntity.Xmlns);
+            Logger.LogInformation("Conteudo enviado via SOAP: {bodyString}", bodyString);
             var body = new StringContent(bodyString);
             string retorno = await CallApiSoapAsync(body, TEMPERATURE_CONVERSION_ROUTE, CONTENT_TYPE);
+            Logger.LogInformation("Resposta recebida via SOAP: {retorno}", retorno);
             CelsiusToFahrenheitResponseXmlEntity resposta = retorno.DeserializarXml<CelsiusToFahrenheitResponseXmlEntity>();
+
+            return resposta;
+        }
+
+        public async Task<FahrenheitToCelsiusResponseXmlEntity> ConvertFahrenheitToCelsius(double number)
+        {
+            FahrenheitToCelsiusXmlEntity degreesXml = new()
+            {
+                Body = new FahrenheitToCelsiusEntity.Body()
+                {
+                    FahrenheitToCelsius = new FahrenheitToCelsius()
+                    {
+                        Fahrenheit = number
+                    }
+                }
+            };
+
+            string bodyString = ObjectXmlToString(degreesXml, FahrenheitToCelsiusXmlEntity.Xmlns);
+            Logger.LogInformation("Conteudo enviado via SOAP: {bodyString}", bodyString);
+            var body = new StringContent(bodyString);
+            string retorno = await CallApiSoapAsync(body, TEMPERATURE_CONVERSION_ROUTE, CONTENT_TYPE);
+            Logger.LogInformation("Resposta recebida via SOAP: {retorno}", retorno);
+            FahrenheitToCelsiusResponseXmlEntity resposta = retorno.DeserializarXml<FahrenheitToCelsiusResponseXmlEntity>();
 
             return resposta;
         }

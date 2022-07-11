@@ -30,12 +30,12 @@ public class NumberController : Controller
     [ProducesResponseType(typeof(NumberFullNameModel), StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-    public async Task<IActionResult> GetNumberInFullName([FromRoute] int number)
+    public async Task<IActionResult> GetNumberInFullName([FromRoute] double number)
     {
         try
         {
             var retorno = await _dataAccessRepository.GetFulNameByNumber(number);
-            _logger.LogInformation($"Entrada: {number}; Saída: {retorno}");
+            _logger.LogInformation("Entrada: {entrada}; Saída: {saida}", number, retorno.Body.NumberToWordsResponse.NumberToWordsResult);
             return Ok(retorno.GetModel(number));
         }
         catch (Exception ex)
@@ -57,7 +57,7 @@ public class NumberController : Controller
         try
         {
             var retorno = await _dataAccessRepository.GetDollarsFromNumber(number);
-            _logger.LogInformation($"Entrada: {number}; Saída: {retorno}");
+            _logger.LogInformation("Entrada: {entrada}; Saída: {saida}", number, retorno.Body.NumberToDollarsResponse.NumberToDollarsResult);
             return Ok(retorno.GetModel(number));
         }
         catch (Exception ex)

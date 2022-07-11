@@ -6,15 +6,15 @@ namespace ECA.SOAP.Demo.Models;
 public class CelsiusToFahrenheitModel
 {
     [JsonPropertyName("fahrenheit-degree")]
-    public int FahrenheitDegree { get; set; }
+    public double FahrenheitDegree { get; set; }
     [JsonPropertyName("celsius-input")]
-    public int CelsiusInput { get; set; }
+    public double CelsiusInput { get; set; }
 }
 
 
 public static class CelsiusToFahrenheitModelExtension
 {
-    public static CelsiusToFahrenheitModel GetModel(this CelsiusToFahrenheitResponseXmlEntity entity, int numberInput)
+    public static CelsiusToFahrenheitModel GetModel(this CelsiusToFahrenheitResponseXmlEntity entity, double numberInput)
     {
         if (entity == null)
         {

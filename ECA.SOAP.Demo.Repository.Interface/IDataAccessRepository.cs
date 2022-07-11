@@ -6,7 +6,7 @@ namespace ECA.SOAP.Demo.Repository.Interface
 {
     public interface IDataAccessRepository
     {
-        Task<NumberToWordsResponseXmlEntity> GetFulNameByNumber(int number);
+        Task<NumberToWordsResponseXmlEntity> GetFulNameByNumber(double number);
         Task<NumberToDollarsResponseXmlEntity> GetDollarsFromNumber(double number);
     }
 }

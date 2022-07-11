@@ -24,18 +24,41 @@ public class TemperatureController : Controller
         _w3cTemperatureRepository = w3cTemperatureRepository;
         _logger = logger;
     }
+    
     [HttpGet]
     [Route("celsius-fahrenheit/{number}")]
     [Produces("application/json")]
     [ProducesResponseType(typeof(CelsiusToFahrenheitModel), StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-    public async Task<IActionResult> GetNumberInFullName([FromRoute] int number)
+    public async Task<IActionResult> ConvertCelsiusToFahrenheit([FromRoute] double number)
     {
         try
         {
-            var retorno = await _w3cTemperatureRepository.ConvertGetFulNameByNumber(number);
-            _logger.LogInformation($"Entrada: {number}; Saída: {retorno.Body.CelsiusToFahrenheitResponse.CelsiusToFahrenheitResult}");
+            var retorno = await _w3cTemperatureRepository.ConvertCelsiusToFahrenheit(number);
+            _logger.LogInformation("Entrada: {entrada}; Saída: {saida}", number, retorno.Body.CelsiusToFahrenheitResponse.CelsiusToFahrenheitResult);
+            return Ok(retorno.GetModel(number));
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError($"Erro ao executar: {ex.Message}; {ex.StackTrace}");
+            return StatusCode((int)HttpStatusCode.InternalServerError, ex);
+        }
+
+    } 
+    
+    [HttpGet]
+    [Route("fahrenheit-celsius/{number}")]
+    [Produces("application/json")]
+    [ProducesResponseType(typeof(FahrenheitToCelsiusModel), StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+    public async Task<IActionResult> ConvertFahrenheitToCelsius([FromRoute] double number)
+    {
+        try
+        {
+            var retorno = await _w3cTemperatureRepository.ConvertFahrenheitToCelsius(number);
+            _logger.LogInformation("Entrada: {entrada}; Saída: {saida}", number, retorno.Body.FahrenheitToCelsiusResponse.FahrenheitToCelsiusResult);
             return Ok(retorno.GetModel(number));
         }
         catch (Exception ex)

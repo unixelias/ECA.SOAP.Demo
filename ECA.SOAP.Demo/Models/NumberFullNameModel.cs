@@ -8,13 +8,13 @@ public class NumberFullNameModel
     [JsonPropertyName("full-name")]
     public string FullName { get; set; }
     [JsonPropertyName("number")]
-    public int Number { get; set; }
+    public double Number { get; set; }
 }
 
 
 public static class NumberFullNameModelExtension
 {
-    public static NumberFullNameModel GetModel(this NumberToWordsResponseXmlEntity entity, int numberInput)
+    public static NumberFullNameModel GetModel(this NumberToWordsResponseXmlEntity entity, double numberInput)
     {
         if (entity == null)
         {

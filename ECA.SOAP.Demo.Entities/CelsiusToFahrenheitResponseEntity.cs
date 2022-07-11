@@ -37,6 +37,6 @@ public class CelsiusToFahrenheitResponseEntity
     public class CelsiusToFahrenheitResponse
     {
         [XmlElement(ElementName = "CelsiusToFahrenheitResult", Namespace = W3sns)]
-        public int CelsiusToFahrenheitResult { get; set; }
+        public double CelsiusToFahrenheitResult { get; set; }
     }
 }

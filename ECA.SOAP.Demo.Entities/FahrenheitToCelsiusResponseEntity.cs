@@ -2,7 +2,7 @@
 
 namespace ECA.SOAP.Demo.Entities;
 
-public class CelsiusToFahrenheitEntity
+public class FahrenheitToCelsiusResponseEntity
 {
     private const string Soap12 = "http://www.w3.org/2003/05/soap-envelope";
     private const string Xsd = "http://www.w3.org/2001/XMLSchema";
@@ -11,11 +11,11 @@ public class CelsiusToFahrenheitEntity
 
     [XmlType(IncludeInSchema = true)]
     [XmlRoot("Envelope", Namespace = Soap12)]
-    public class CelsiusToFahrenheitXmlEntity
+    public class FahrenheitToCelsiusResponseXmlEntity
     {
         public Body Body { get; set; }
 
-        public CelsiusToFahrenheitXmlEntity()
+        public FahrenheitToCelsiusResponseXmlEntity()
         {
             Xmlns.Add("soap12", Soap12);
             Xmlns.Add("xsd", Xsd);
@@ -29,14 +29,14 @@ public class CelsiusToFahrenheitEntity
     [XmlType(Namespace = Soap12)]
     public class Body
     {
-        [XmlElement(ElementName = "CelsiusToFahrenheit", Namespace = W3sns)]
-        public CelsiusToFahrenheit CelsiusToFahrenheit { get; set; }
+        [XmlElement(ElementName = "FahrenheitToCelsiusResponse", Namespace = W3sns)]
+        public FahrenheitToCelsiusResponse FahrenheitToCelsiusResponse { get; set; }
     }
 
     [XmlType(Namespace = "")]
-    public class CelsiusToFahrenheit
+    public class FahrenheitToCelsiusResponse
     {
-        [XmlElement(ElementName = "Celsius", Namespace = W3sns)]
-        public double Celsius { get; set; }
+        [XmlElement(ElementName = "FahrenheitToCelsiusResult", Namespace = W3sns)]
+        public double FahrenheitToCelsiusResult { get; set; }
     }
 }

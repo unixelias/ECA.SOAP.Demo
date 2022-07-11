@@ -34,6 +34,6 @@ public class NumberToWordsEntity
     public class NumberToWords
     {
         [XmlElement(ElementName = "ubiNum", Namespace = "")]
-        public int UbiNum { get; set; }
+        public double UbiNum { get; set; }
     }
 }
