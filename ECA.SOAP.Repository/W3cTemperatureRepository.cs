@@ -39,10 +39,10 @@ namespace ECA.SOAP.Demo.Repository
             };
 
             string bodyString = ObjectXmlToString(degreesXml, CelsiusToFahrenheitXmlEntity.Xmlns);
-            Logger.LogInformation("Conteudo enviado via SOAP: {bodyString}", bodyString);
+            Logger.LogInformation("Conteudo enviado via SOAP:\n {bodyString}", bodyString);
             var body = new StringContent(bodyString);
             string retorno = await CallApiSoapAsync(body, TEMPERATURE_CONVERSION_ROUTE, CONTENT_TYPE);
-            Logger.LogInformation("Resposta recebida via SOAP: {retorno}", retorno);
+            Logger.LogInformation("Resposta recebida via SOAP:\n {retorno}", retorno);
             CelsiusToFahrenheitResponseXmlEntity resposta = retorno.DeserializarXml<CelsiusToFahrenheitResponseXmlEntity>();
 
             return resposta;
@@ -62,10 +62,10 @@ namespace ECA.SOAP.Demo.Repository
             };
 
             string bodyString = ObjectXmlToString(degreesXml, FahrenheitToCelsiusXmlEntity.Xmlns);
-            Logger.LogInformation("Conteudo enviado via SOAP: {bodyString}", bodyString);
+            Logger.LogInformation("Conteudo enviado via SOAP:\n {bodyString}", bodyString);
             var body = new StringContent(bodyString);
             string retorno = await CallApiSoapAsync(body, TEMPERATURE_CONVERSION_ROUTE, CONTENT_TYPE);
-            Logger.LogInformation("Resposta recebida via SOAP: {retorno}", retorno);
+            Logger.LogInformation("Resposta recebida via SOAP:\n {retorno}", retorno);
             FahrenheitToCelsiusResponseXmlEntity resposta = retorno.DeserializarXml<FahrenheitToCelsiusResponseXmlEntity>();
 
             return resposta;

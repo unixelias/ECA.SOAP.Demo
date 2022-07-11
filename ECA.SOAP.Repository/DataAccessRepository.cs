@@ -39,10 +39,10 @@ namespace ECA.SOAP.Demo.Repository
             };
 
             string bodyString = ObjectXmlToString(numberXml, NumberToWordsXmlEntity.Xmlns);
-            Logger.LogInformation("Conteudo enviado via SOAP: {bodyString}", bodyString);
+            Logger.LogInformation("Conteudo enviado via SOAP:\n {bodyString}", bodyString);
             var body = new StringContent(bodyString);
             string retorno = await CallApiSoapAsync(body, NUMBER_CONVERSION_ROUTE, CONTENT_TYPE);
-            Logger.LogInformation("Resposta recebida via SOAP: {retorno}", retorno);
+            Logger.LogInformation("Resposta recebida via SOAP:\n {retorno}", retorno);
             NumberToWordsResponseXmlEntity resposta = retorno.DeserializarXml<NumberToWordsResponseXmlEntity>();
 
             return resposta;
@@ -62,10 +62,10 @@ namespace ECA.SOAP.Demo.Repository
             };
 
             string bodyString = ObjectXmlToString(numberXml, NumberToDollarsXmlEntity.Xmlns);
-            Logger.LogInformation("Conteudo enviado via SOAP: {bodyString}", bodyString);
+            Logger.LogInformation("Conteudo enviado via SOAP:\n {bodyString}", bodyString);
             var body = new StringContent(bodyString);
             string retorno = await CallApiSoapAsync(body, NUMBER_CONVERSION_ROUTE, CONTENT_TYPE);
-            Logger.LogInformation("Resposta recebida via SOAP: {retorno}", retorno);
+            Logger.LogInformation("Resposta recebida via SOAP:\n {retorno}", retorno);
             NumberToDollarsResponseXmlEntity resposta = retorno.DeserializarXml<NumberToDollarsResponseXmlEntity>();
 
             return resposta;
